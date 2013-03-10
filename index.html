@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Bmlt-root-server by MAGSHARE</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Bmlt-root-server</h1>
+        <h2>This is the main &quot;root&quot; server for the Basic Meeting List Toolbox (BMLT)</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/MAGSHARE/BMLT-Root-Server/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/MAGSHARE/BMLT-Root-Server/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/MAGSHARE/BMLT-Root-Server" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>BMLT Root Server</h1>
+
+<p>BMLT (**B**asic <strong>M</strong>eeting <strong>L</strong>ist <strong>T</strong>oolbox) Root Server Source Code.</p>
+
+<p>This is the code that implements <a href="http://bmlt.magshare.net/root-server/">the central ("root") server</a>. The suggested model is that a Region set up and maintain this server, while Area Services set up <a href="http://bmlt.magshare.net/satellites/">"satellite" servers</a>.</p>
+
+<p>In order to use this server, you should <a href="https://github.com/MAGSHARE/BMLT-Root-Server/archive/Release.zip">download a zip</a> of <a href="https://github.com/MAGSHARE/BMLT-Root-Server">the "release" branch</a> of the code, and install it as a standalone Web site on your own Web server. <a href="http://bmlt.magshare.net/specific-topics/server-requirements/">Here are instructions for finding out if your Web server is set up correctly.</a></p>
+
+<p>Once you have it set up, then load it with meeting data, and get satellites connected to it.</p>
+
+<h2>DESCRIPTION</h2>
+
+<p>The Basic Meeting List Toolbox (BMLT, hereafter) is a very powerful client/server system
+that has been written for a very specific purpose, for a very specific clientele.</p>
+
+<p>It is designed to track and locate Narcotics Anonymous meetings, which are regularly-
+scheduled weekly, recurring events.</p>
+
+<p>The intended clientele is Narcotics Anonymous Service bodies. They implement a BMLT
+server, and provide the server to other NA Service bodies.</p>
+
+<p>You can find out way too much about the BMLT here: <a href="http://bmlt.magshare.org">http://bmlt.magshare.org</a></p>
+
+<p>This project is the "root" server for the BMLT. It is the "server" part of the BMLT
+"client/server" architecture.</p>
+
+<p>The project is actually several years old. To see the pre-GitHub history, visit the
+original SourceForge page at: <a href="https://sourceforge.net/projects/comdef/">https://sourceforge.net/projects/comdef/</a></p>
+
+<p>I decided to start new on GitHub, as opposed to bringing over the SourceForge project,
+in order to reduce disk space usage, and because it's a pain to rearrange a standard
+SVN structure to Git.</p>
+
+<h2>REQUIREMENTS</h2>
+
+<p>The entire system is written in PHP, JavaScript, XHTML and CSS. Most of the code is PHP.</p>
+
+<p>PHP 5.1 or above is required to establish a root server, and 5.0 or above for a satellite.</p>
+
+<p>For more information about server requirements, see this page:</p>
+
+<pre><code>http://bmlt.magshare.net/advanced-topics/server-requirements/
+</code></pre>
+
+<h2>INSTALLATION</h2>
+
+<p>You set up a root server as the central database and administration area for a BMLT
+implementation, but most people access it through what we call "satellite servers." These
+satellites comprise the "client" part of the BMLT "client/server" architecture.</p>
+
+<p>For instructions on installing the root server, see this page:</p>
+
+<pre><code>http://bmlt.magshare.net/root-server/
+</code></pre>
+
+<h2>CHANGELIST</h2>
+
+<p>= Version 1.10.3</p>
+
+<ul>
+<li>January 16, 2013</li>
+<li>Added a "GetServiceBodies" variant to the semantic export.</li>
+</ul><p>= Version 1.10.2</p>
+
+<ul>
+<li>January 8, 2013</li>
+<li>The miles from search center value was incorrect (improper conversion from Km). This has been fixed.</li>
+</ul><p>= Version 1.10.1</p>
+
+<ul>
+<li>The main change in this version is that the formats can be exported so that only the ones actually used in the search are given.</li>
+</ul><p>= Version 1.9 =</p>
+
+<ul>
+<li>March 24, 2012</li>
+<li>Fixed a bug that did not apply localizations to PDF generation.</li>
+<li>Fixed a bug in the Metaphone splitter (It was in rarely used code, and had been there forever).</li>
+<li>Added some functionality to aid in syncing with the NAWS system.</li>
+<li>Changed the base "primer" DB to include the new standard set of formats to be used to sync with NAWS.</li>
+<li>Changed the way the "install wizard" works, in order to make it easier to "prime" the database.</li>
+</ul><p>= Version 1.8.43 =</p>
+
+<ul>
+<li>November 24, 2011</li>
+<li>Undid the date bug fix, as it caused problems on some servers, by reporting the wrong times.</li>
+</ul><p>= Version 1.8.42 =</p>
+
+<ul>
+<li>November 17, 2011</li>
+<li>Fixed a bug in which day/time searches were being offset improperly on some servers.</li>
+<li>Fixed a bug, in which the CSV response could cause a crash.</li>
+</ul><p>= Version 1.8.41 =</p>
+
+<ul>
+<li>October 22, 2011</li>
+<li>Addressed a bug, in which the wrong timezone was possibly being specified. The auto-config file will now allow a timezone to be specified in a variable called $default_timezone.</li>
+<li>Somehow or another, some junk characters got into the AJAX Thread Driver file. That has been fixed.</li>
+</ul><p>= Version 1.8.40 =</p>
+
+<ul>
+<li>October 21, 2011</li>
+<li>Swedish localization added.</li>
+<li>There was a minor error in the XML schema for formats that interfered with operation on the iPhone app. This has been fixed.</li>
+</ul><p>= Version 1.8.39 =</p>
+
+<ul>
+<li>September 5, 2011</li>
+<li>NA Sweden had an error, in which their server reports that it has all the various crypt() methodologies, but can't actually deliver. This broke the FullCrypt() function. I addressed it by adding a fallback to the most primitive crypt() function.</li>
+</ul><p>= Version 1.8.38 =</p>
+
+<ul>
+<li>August 17, 2011</li>
+<li>This addresses an issue where overrides of the address format strings were being ignored. It may also give a slight improvement to page load times.</li>
+</ul><p>= Version 1.8.37 =</p>
+
+<ul>
+<li>August 15, 2011</li>
+<li>Fixed a bug that prevented the "Contact Us About This Meeting" link from appearing in "More Details."</li>
+</ul><p>= Version 1.8.36 =</p>
+
+<ul>
+<li>August 12, 2011</li>
+<li>Fixed a bug discovered by UKNA, in which subsequent pages of a multi-page location result woul have bad links.</li>
+</ul><p>= Version 1.8.35 =</p>
+
+<ul>
+<li>July 11, 2011</li>
+<li>Fixed a couple of minor bugs in the installer wizard.</li>
+<li>Also added a change to the search spec. throbber location that should make it appear in the correct place, now.</li>
+</ul><p>= Version 1.8.34 =</p>
+
+<ul>
+<li>July 4, 2011</li>
+<li>Fixed a validation issue with the search form.</li>
+</ul><p>= Version 1.8.33 =</p>
+
+<ul>
+<li>June 26, 2011</li>
+<li>Added new fields to the CSV/JSON/XML Change response.</li>
+<li>There was a minor security issue that could have occurred with the email_contact field. It may have been displayed in some change records. This has been addressed.</li>
+<li>Made the changes response dig into a hierarchy of Service bodies, if a "parent" Service body ID is presented in service_body_id=</li>
+</ul><p>= Version 1.8.32 =</p>
+
+<ul>
+<li>June 22, 2011</li>
+<li>Added the ability to filter by Service body, when looking for changes, and now only return meeting changes (previously, some Service body and user changes could also be supplied).</li>
+<li>Made a minor fix in the default details address string, so that meeting locations with no name won't show an empty comma.</li>
+<li>Added the address format strings to the shared local strings, which should help performance, and decouple the linking to global variables.</li>
+</ul><p>= Version 1.8.31 =</p>
+
+<ul>
+<li>June 7, 2011</li>
+<li>Added additional capability to the CSV, JSON and XML outputs, so that the Satellite Driver can extract more relevant information.</li>
+</ul><p>= Version 1.8.30 =</p>
+
+<ul>
+<li>June 5, 2011</li>
+<li>Fixed a fairly minor bug, in which failed geocode lookups would result in a blank screen. They now result in a message.</li>
+</ul><p>= Version 1.8.29 =</p>
+
+<ul>
+<li>June 4, 2011</li>
+<li>Initial check-in of GitHub project</li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
